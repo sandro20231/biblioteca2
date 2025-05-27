@@ -1,3 +1,55 @@
-from django.test import TestCase
-
+from django.test import TestCase, Client
+from .models import Autor, Livro
 # Create your tests here.
+
+
+class Testes(TestCase):
+
+    def setUp(self):
+        a1 = Autor.objects.create(nome="xx", idade=10)
+        a2 = Autor.objects.create(nome="YY", idade=20)
+
+    # testes de inserção em telas
+
+    def test_inserirautor(self):
+        """Entrar na tela de url index"""
+        c = Client()
+        c1 = c.get('/inserirautor/')
+        self.assertEqual(c1.status_code, 200)
+
+    def test_isnerirlivro(self):
+        """Entrar na tela inserir livro"""
+        c = Client()
+        c1 = c.get('/inserirlivro/')
+        self.assertEqual(c1.status_code, 200)
+
+    def test_index(self):
+        """Entrar em index"""
+        c = Client()
+        c1 = c.get('')
+        self.assertEqual(c1.status_code, 200)
+
+    def test_listarautor(self):
+        """Entrar em listar autor"""
+        c = Client()
+        c1 = c.get('/listarautores/')
+        self.assertEqual(c1.status_code, 200)
+
+    def test_listarlivros(self):
+        """Entrar em listar livros"""
+        c = Client()
+        c1 = c.get('/listarlivros/')
+        self.assertEqual(c1.status_code, 200)
+
+    def test_login(self):
+        """Entrar em login"""
+        c = Client()
+        c1 = c.get('/login/')
+        self.assertEqual(c1.status_code, 200)
+
+    # teste de registro de autores
+
+    def test_contar_autor(self):
+        """A quantidade de autores é 2"""
+        a1 = Autor.objects.all()
+        self.assertEqual(a1.count(), 2)

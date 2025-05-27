@@ -2,7 +2,7 @@
 
 {% block body %}
 <h2>Inserindo autor:</h2>
-<form>
+<form action="{% url 'inserirautor' %}" method="post">
     {% csrf_token %}
     <table>
         <tbody>
