@@ -20,5 +20,5 @@ jobs:
 
       - name: Run Django tests
         run: python manage.py test
-        working-directory: biblioteca
+        working-directory: biblioteca2
 
