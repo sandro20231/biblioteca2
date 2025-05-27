@@ -1,0 +1,25 @@
+{% extends 'biblioteca/layout.html' %}
+
+{% block body %}
+<h2>Inserindo autor:</h2>
+<form>
+    {% csrf_token %}
+    <table>
+        <tbody>
+            <tr>
+                <td><label>Nome:</label></td>
+                <td><input type="text" class="nome1" name="nome1" placeholder="digite seu nome aqui" autofocus><br></td>
+            </tr>
+            <tr>
+                <td><label>Idade:</label></td>
+                <td><input type="number" class="numero1" name="numero1" placeholder="digite sua idade aqui"><br></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <button type="submit">Cadastrar nome</button>
+
+</form>
+{% endblock %}

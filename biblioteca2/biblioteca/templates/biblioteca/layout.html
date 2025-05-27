@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca 2</title>
+    <link href="{% static 'biblioteca/estilo.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <header>
+            <h1>Biblioteca 2</h1>
+        </header>
+    </div>
+    <div>
+        <nav>
+            <a href="#">Logout</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'inserirautor' %}">Inserir autor</a>
+            <a href="{% url 'inserirlivro' %}">Inserir livro</a>
+            <a href="{% url 'listarautores' %}">Listar autores</a>
+            <a href="{% url 'listarlivros' %}">Listar livros</a>
+        </nav>
+    </div>
+
+    {% block body %}{% endblock %}
+</body>
+
+</html>

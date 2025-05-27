@@ -1,0 +1,23 @@
+{% extends 'biblioteca/layout.html' %}
+
+{% block body %}
+<h2>Inserindo autor:</h2>
+<form>
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td><label>Título:</label></td>
+            <td><input type="text" class="titulo1" name="titulo1" placeholder="Digite seu título aqui" autofocus></td>
+        </tr>
+        <tr>
+            <td><label>Autor:</label></td>
+            <td><input type="text" class="autor1" name="autor1" placeholder="Digite o nome do autor"></td>
+        </tr>
+        <tr>
+            <td><label>Resumo:</label></td>
+            <td><input type="text" class="resumo1" name="resumo1" placeholder="digite o resumo aqui"></td>
+        </tr>
+    </table>
+    <button type="submit">Slavar Livro</button>
+</form>
+{% endblock %}

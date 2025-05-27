@@ -1,0 +1,23 @@
+{% extends 'biblioteca/layout.html' %}
+
+{% block body %}
+<h2>Lista de autores:</h2>
+<table>
+    <thead>
+        <tr>
+            <td>Id:</td>
+            <td>Nome:</td>
+            <td>Idade:</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in registro %}
+        <tr>
+            <td>{{r.id}}</td>
+            <td>{{r.nome}}</td>
+            <td>{{r.idade}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

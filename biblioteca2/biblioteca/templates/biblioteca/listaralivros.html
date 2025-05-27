@@ -1,0 +1,28 @@
+{% extends 'biblioteca/layout.html' %}
+
+{% block body %}
+<h2>Listar livros</h2>
+<form>
+    {% csrf_token %}
+    <table>
+        <thead>
+            <tr>
+                <th>Id:</th>
+                <th>Título:</th>
+                <th>Autor:</th>
+                <th>Resumo:</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in registros %}
+            <tr>
+                <td>{{r.id}}</td>
+                <td>{{r.titulo}}</td>
+                <td>{{r.autor}}</td>
+                <td>{{r.resumo}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+{% endblock %}
