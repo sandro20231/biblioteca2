@@ -9,6 +9,9 @@ class Testes(TestCase):
         a1 = Autor.objects.create(nome="xx", idade=10)
         a2 = Autor.objects.create(nome="YY", idade=20)
 
+        l1 = Livro.objects.create(titulo="aa", autor=a1, resumo="aaaaaaaaaaa")
+        l2 = Livro.objects.create(titulo="bb", autor=a2, resumo="bbbbbbbbbbbb" )
+
     # testes de inserção em telas
 
     def test_inserirautor(self):
@@ -53,3 +56,10 @@ class Testes(TestCase):
         """A quantidade de autores é 2"""
         a1 = Autor.objects.all()
         self.assertEqual(a1.count(), 2)
+
+    # test de registro de livros
+
+    def test_count_livro(self):
+        """a quantidade de livros é 2"""
+        l1 = Livro.objects.all()
+        self.assertEqual(l1.count(), 2)

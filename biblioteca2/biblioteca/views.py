@@ -21,6 +21,14 @@ def inserirautor(request):
 
 
 def inserirlivro(request):
+    if request.method == "POST":
+        titulo = request.POST['titulo1']
+        autor = request.POST['autor1']
+        objetoautor = Autor.objects.filter(nome=autor).first()
+        resumo = request.POST['resumo1']
+        registro = Livro(titulo=titulo, autor=objetoautor, resumo=resumo)
+        registro.save()
+        return HttpResponseRedirect(reverse('listarlivros'))
     return render(request, 'biblioteca/inserirlivro.html')
 
 
