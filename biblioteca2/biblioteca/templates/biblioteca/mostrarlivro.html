@@ -5,4 +5,8 @@
 <p>Id: {{ livro.id }}</p>
 <p>Autor: {{ livro.autor }}</p>
 <p> Resumo: {{ livro.resumo }}</p>
+<form action="deletar" method="post">
+    {% csrf_token %}
+    <button type="submit">Deletar livro</button>
+</form>
 {% endblock %}

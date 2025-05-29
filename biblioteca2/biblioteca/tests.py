@@ -79,3 +79,21 @@ class Testes(TestCase):
         c = Client()
         livro = c.get(f"/listarlivros/{l1.id}/")
         self.assertEqual(livro.status_code, 200)
+
+    # testes deletando autor
+
+    def test_deletandoautor(self):
+        """o autor foi deletado e o numero de autores agora é 1"""
+        a1 = Autor.objects.get(nome="xx")
+        a1.delete()
+        a2 = Autor.objects.all()
+        self.assertEqual(a2.count(), 1)
+
+    # testes deletando livro
+
+    def test_deletandolivro(self):
+        """o livro foi deletado e o numero de livros agora é 1"""
+        l1 = Livro.objects.get(titulo="aa")
+        l1.delete()
+        l2 = Livro.objects.all()
+        self.assertEqual(l2.count(), 1)

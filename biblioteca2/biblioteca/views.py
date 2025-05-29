@@ -54,3 +54,17 @@ def mostrarautor(request, id):
 def mostrarlivro(request, id):
     objetolivro = Livro.objects.get(pk=id)
     return render(request, 'biblioteca/mostrarlivro.html', {"livro": objetolivro})
+
+
+def deletarautor(request, id):
+    if request.method == "POST":
+        autor = Autor.objects.get(pk=id)
+        autor.delete()
+        return HttpResponseRedirect(reverse('listarautores'))
+
+
+def deletarlivros(request, id):
+    if request.method == "POST":
+        livro = Livro.objects.get(pk=id)
+        livro.delete()
+        return HttpResponseRedirect(reverse('listarlivros'))

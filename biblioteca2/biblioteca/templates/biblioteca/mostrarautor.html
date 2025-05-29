@@ -3,4 +3,8 @@
 <h2>{{ autor.nome}}</h2>
 <p>Id:{{autor.id}}</p>
 <p>Idade:{{autor.idade}}</p>
+<form action="deletar" method="post">
+    {% csrf_token %}
+    <button type="submit">Deletar</button>
+</form>
 {% endblock %}
