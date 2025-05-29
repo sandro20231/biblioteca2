@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Autor, Livro
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
 
@@ -68,3 +69,17 @@ def deletarlivros(request, id):
         livro = Livro.objects.get(pk=id)
         livro.delete()
         return HttpResponseRedirect(reverse('listarlivros'))
+
+
+def alterarautor(request, id):
+    autor = get_object_or_404(Autor, pk=id)
+
+    if request.method == "POST":
+        nome = request.POST["nome2"]
+        idade = request.POST["numero2"]
+        autor.nome = nome
+        autor.idade = idade
+        autor.save()
+        return redirect('listarautores')  # redireciona após salvar
+
+    return render(request, 'biblioteca/alterarautor.html', {"autor": autor})

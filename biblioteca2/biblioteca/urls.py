@@ -10,6 +10,10 @@ urlpatterns = [
     path('listarlivros/', views.listarlivros, name="listarlivros"),
     path('listarautores/<int:id>/', views.mostrarautor, name="mostrarautor"),
     path('listarlivros/<int:id>/', views.mostrarlivro, name="mostrarlivro"),
-    path('listarautores/<int:id>/deletar', views.deletarautor, name="deletarautor"),
-    path('listarlivros/<int:id>/deletar', views.deletarlivros, name="deletarlivros")
+    path('listarautores/<int:id>/deletar',
+         views.deletarautor, name="deletarautor"),
+    path('listarlivros/<int:id>/deletar',
+         views.deletarlivros, name="deletarlivros"),
+    path('listarautores/<int:id>/alterar',
+         views.alterarautor, name="alterarautor")
 ]

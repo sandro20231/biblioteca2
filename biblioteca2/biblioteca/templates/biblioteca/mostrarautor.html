@@ -5,6 +5,10 @@
 <p>Idade:{{autor.idade}}</p>
 <form action="deletar" method="post">
     {% csrf_token %}
-    <button type="submit">Deletar</button>
+    <button type="submit">Deletar autor</button>
+</form>
+<form action="{% url 'alterarautor' autor.id %}" method="get">
+{% csrf_token %}
+<button type="submit">Alterar dados</button>
 </form>
 {% endblock %}
