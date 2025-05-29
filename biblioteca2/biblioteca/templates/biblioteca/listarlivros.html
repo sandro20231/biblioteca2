@@ -16,7 +16,7 @@
         <tbody>
             {% for r in registros %}
             <tr>
-                <td>{{r.id}}</td>
+                <td><a href='{{r.id}}/'>{{r.id}}</a></td>
                 <td>{{r.titulo}}</td>
                 <td>{{r.autor}}</td>
                 <td>{{r.resumo}}</td>

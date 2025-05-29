@@ -44,3 +44,13 @@ def listarautores(request):
 def listarlivros(request):
     registros = Livro.objects.all()
     return render(request, 'biblioteca/listarlivros.html', {"registros": registros})
+
+
+def mostrarautor(request, id):
+    objetoautor = Autor.objects.get(pk=id)
+    return render(request, 'biblioteca/mostrarautor.html', {"autor": objetoautor})
+
+
+def mostrarlivro(request, id):
+    objetolivro = Livro.objects.get(pk=id)
+    return render(request, 'biblioteca/mostrarlivro.html', {"livro": objetolivro})

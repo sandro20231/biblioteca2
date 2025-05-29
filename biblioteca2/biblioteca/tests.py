@@ -10,7 +10,7 @@ class Testes(TestCase):
         a2 = Autor.objects.create(nome="YY", idade=20)
 
         l1 = Livro.objects.create(titulo="aa", autor=a1, resumo="aaaaaaaaaaa")
-        l2 = Livro.objects.create(titulo="bb", autor=a2, resumo="bbbbbbbbbbbb" )
+        l2 = Livro.objects.create(titulo="bb", autor=a2, resumo="bbbbbbbbbbbb")
 
     # testes de inserção em telas
 
@@ -63,3 +63,19 @@ class Testes(TestCase):
         """a quantidade de livros é 2"""
         l1 = Livro.objects.all()
         self.assertEqual(l1.count(), 2)
+
+    # testes abrindo livros e autores individuais
+
+    def test_mostrarautor(self):
+        """a páigna de mostrar autor abre"""
+        a1 = Autor.objects.get(nome="xx")
+        c = Client()
+        autor = c.get(f"/listarautores/{a1.id}/")
+        self.assertEqual(autor.status_code, 200)
+
+    def test_mostrarlivro(self):
+        """a página mostrar livro abre"""
+        l1 = Livro.objects.get(titulo="aa")
+        c = Client()
+        livro = c.get(f"/listarlivros/{l1.id}/")
+        self.assertEqual(livro.status_code, 200)
